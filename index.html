@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Neera 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #ff69b4;
+      font-family: 'Great Vibes', cursive;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .buttons button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ff69b4;
+      color: #000;
+      transition: transform 0.3s ease;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .buttons button:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .letter {
+      font-size: 2rem;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeIn 5s forwards;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .letter span {
+      opacity: 0;
+      animation: wordFade 0.5s forwards;
+    }
+
+    @keyframes wordFade {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Page 1: Valentine's Question -->
+    <div id="page1">
+      <h1>💖 Neera, will you be my Valentine? 💖</h1>
+      <div class="buttons">
+        <button onclick="showPage2()">Yes</button>
+        <button onclick="threat()">No</button>
+      </div>
+    </div>
+
+    <!-- Page 2: Lifetime Commitment -->
+    <div id="page2" class="hidden">
+      <h1>💖 Will you be with me for a lifetime? 💖</h1>
+      <div class="buttons">
+        <button onclick="showLetter()">Yes</button>
+        <button onclick="threat()">No</button>
+      </div>
+    </div>
+
+    <!-- Page 3: Fading Letter -->
+    <div id="page3" class="hidden">
+      <div class="letter">
+        <span>My Dearest Neera,</span><br><br>
+        <span>From the moment I met you, my life has been filled with joy and love.</span><br>
+        <span>You are the most amazing person I have ever known, and I am so grateful to have you in my life.</span><br>
+        <span>I promise to cherish you, support you, and love you with all my heart for the rest of my days.</span><br>
+        <span>You are my everything, and I can't imagine a future without you.</span><br><br>
+        <span>Forever yours,</span><br>
+        <span>Rakshit</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="./perfect - ed sheeran [edit audio].mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Music Control Button -->
+  <button id="playMusicButton" onclick="playMusic()">Play Music</button>
+
+  <!-- JavaScript -->
+  <script>
+    function showPage2() {
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+
+    function showLetter() {
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page3').classList.remove('hidden');
+      animateLetter();
+    }
+
+    function threat() {
+      alert("I will beat yo ass! 😡 Just kidding, but please say YES! 💖");
+    }
+
+    function animateLetter() {
+      const spans = document.querySelectorAll('.letter span');
+      spans.forEach((span, index) => {
+        setTimeout(() => {
+          span.style.opacity = 1;
+        }, index * 500); // Adjust timing for word-by-word fade
+      });
+    }
+
+    // Play background music when the button is clicked
+    function playMusic() {
+      const bgMusic = document.getElementById('bgMusic');
+      const playButton = document.getElementById('playMusicButton');
+      bgMusic.play();
+      playButton.style.display = 'none'; // Hide the button after playing the music
+    }
+  </script>
+</body>
+</html>
